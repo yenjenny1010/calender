@@ -26,38 +26,26 @@ elif mode == 3:
     date = eval(input('請輸入日期'))
     print('進入日曆模式')
 while 1:
-    if yyear % 4 == 0 and yyear % 100 == 0 and yyear % 400 == 0:
+    if yyear % 4 == 0 and yyear % 100 == 0 and yyear % 400 == 0:#leapyear
         if month == 2:
             month_day = 29
-        elif month == 1 or 3 or 5 or 7 or 8 or 10 or 12:
-            month_day = 31
-        else:
-            month_day = 30
         distinguish = 1  # Bissextile Year=1 #Common Year=0
-    elif yyear % 4 == 0 and yyear % 100 == 0:
+    elif yyear % 4 == 0 and yyear % 100 == 0:#leapyear
         if month == 2:
             month_day = 28
-        elif month == 1 or 3 or 5 or 7 or 8 or 10 or 12:
-            month_day = 31
-        else:
-            month_day = 30
         distinguish = 0
     elif yyear % 4 == 0:
         if month == 2:
             month_day = 29
-        elif month == 1 or 3 or 5 or 7 or 8 or 10 or 12:
-            month_day = 31
-        else:
-            month_day = 30
         distinguish = 1
     else:
         if month == 2:
             month_day = 28
-        elif month == 1 or 3 or 5 or 7 or 8 or 10 or 12:
-            month_day = 31
-        else:
-            month_day = 30
         distinguish = 0
+    if month == 1 or 3 or 5 or 7 or 8 or 10 or 12:
+        month_day = 31
+    else:
+        month_day = 30
     if year == yyear:
         break
     elif distinguish == 1:

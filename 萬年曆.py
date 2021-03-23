@@ -1,5 +1,5 @@
 month_day = 0
-initial_month = 1582
+initial_year = 1582
 distinguish = 0
 january_first_day = 5
 month_first_day = 0
@@ -26,11 +26,11 @@ elif mode == 3:
     date = eval(input('請輸入日期'))
     print('進入日曆模式')
 while 1:
-    if initial_month % 4 == 0 and initial_month % 100 == 0 and initial_month % 400 == 0:#leapyear
+    if initial_year % 4 == 0 and initial_year % 100 == 0 and initial_year % 400 == 0:#leapyear
         distinguish = 1  
-    elif initial_month % 4 == 0 and initial_month % 100 == 0:#leapyear
+    elif initial_year % 4 == 0 and initial_year % 100 == 0:#leapyear
         distinguish = 0
-    elif initial_month % 4 == 0:
+    elif initial_year % 4 == 0:
         distinguish = 1
     else:
         distinguish = 0 #判斷平閏年# Bissextile Year=1 #Common Year=0 
@@ -42,13 +42,13 @@ while 1:
         month_day = 29
     else:
         month_day = 30
-    if year == initial_month:
+    if year == initial_year:
         break
     elif distinguish == 1:
         january_first_day = (january_first_day+2)%7
     else:
         january_first_day = (january_first_day+1)%7
-    initial_month = initial_month+1
+    initial_year = initial_year+1
 
 month_first_day = january_first_day
 
@@ -60,15 +60,14 @@ while 1:
         month_first_day = (month_first_day+29) % 7
     elif initialmonth == 3 :
         month_first_day = (month_first_day+28) % 7
-    elif initialmonth == (5 or 7 or 10 or 12):
+    elif initialmonth == 5 or initialmonth == 7 or initialmonth ==10 or initialmonth ==12:
         month_first_day = (month_first_day+30) % 7
-    elif initialmonth == 2 or 4 or 6 or 8 or 9 or 11:
+    elif initialmonth == 2 or initialmonth == 4 or initialmonth == 6 or initialmonth == 8 or i2nitialmonth ==9 or initialmonth ==11:
         month_first_day = (month_first_day+31) % 7
     if initialmonth == month:
         break
     else:
         initialmonth = initialmonth+1
-
 if mode == 1:
     print("日\t一\t二\t三\t四\t五\t六")
     enter = january_first_day

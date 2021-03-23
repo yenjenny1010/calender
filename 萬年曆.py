@@ -6,6 +6,7 @@ m_f_d = 0
 initialmonth = 1
 allmonth = ["JAN", 'FEB', 'MAR', 'APR', 'MAY',
             'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+allday=['一','二','三','四','五','六','日']
 print('輸入1進入年曆模式')
 print('輸入2進入月曆模式')
 print('輸入3進入日曆模式')
@@ -74,15 +75,9 @@ while 1:
         m_f_d = m_f_d
     elif initialmonth == 3 and distinguish == 1:
         m_f_d = (m_f_d+29) % 7
-    elif initialmonth == 3:
+    elif initialmonth == 3 :
         m_f_d = (m_f_d+28) % 7
-    elif initialmonth == 5:
-        m_f_d = (m_f_d+30) % 7
-    elif initialmonth == 7:
-        m_f_d = (m_f_d+30) % 7
-    elif initialmonth == 10:
-        m_f_d = (m_f_d+30) % 7
-    elif initialmonth == 12:
+    elif initialmonth == (5 or 7 or 10 or 12):
         m_f_d = (m_f_d+30) % 7
     elif initialmonth == 2 or 4 or 6 or 8 or 9 or 11:
         m_f_d = (m_f_d+31) % 7
@@ -116,17 +111,4 @@ if mode == 2:
 if mode == 3:
     print(year, '年', month, '月', date, '日', '星期', end='')
     day = (m_f_d+date-1) % 7
-    if day == 1:
-        print('一')
-    if day == 2:
-        print('二')
-    if day == 3:
-        print('三')
-    if day == 4:
-        print('四')
-    if day == 5:
-        print('五')
-    if day == 6:
-        print('六')
-    if day == 0:
-        print('日')
+    print(allday[day-1])

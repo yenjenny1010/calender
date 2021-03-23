@@ -4,14 +4,20 @@ distinguish=0
 j_f_d=5
 m_f_d=0
 mmonth=1
+year=eval(input("請輸入年"))
+month=eval(input("請輸入月"))
 allmonth=["JAN",'FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
-'''def everymonthfirstday(year,month):
+def everymonthfirstday(year,month):
     month_day=0
     yyear=1582
     distinguish=0 #判斷LEAF YEAR
     j_f_d=5 #一月的第一天
     m_f_d=0 #每個月的第一天
-    mmonth=1 #預設值//'''
+    mmonth=1 #預設值
+    
+
+
+
 
 
 

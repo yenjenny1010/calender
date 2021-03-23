@@ -117,9 +117,7 @@ if mode == 1:
             if enter % 7 == 0:
                 print('')
 if mode == 2:
-
     print("日\t一\t二\t三\t四\t五\t六")
-
     enter = m_f_d
     print('\t'*(m_f_d+1), end="")
     for i in range(1, month_day+1):

@@ -147,6 +147,7 @@ if mode==3:
         print('六')
     if day==0:
         print('日')
+    #11111
 
 
 

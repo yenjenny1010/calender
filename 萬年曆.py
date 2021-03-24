@@ -35,8 +35,6 @@ def function_january_first_day (year):
         initial_year = initial_year+1
     return january_first_day
 
-
-
 print('輸入1進入年曆模式\n輸入2進入月曆模式\n輸入3進入日曆模式')
 mode = eval(input("請輸入查詢模式"))
 if mode == 1:

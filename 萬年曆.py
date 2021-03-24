@@ -1,3 +1,4 @@
+
 allmonth = ["JAN", 'FEB', 'MAR', 'APR', 'MAY','JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 allday=['一','二','三','四','五','六','日']
 def function_january_first_day (year):
@@ -134,3 +135,4 @@ if mode == 3:
     print(year, '年', month, '月', date, '日', '星期', end='')
     day = (month_first_day+date-1) % 7
     print(allday[day-1])
+

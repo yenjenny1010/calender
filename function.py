@@ -19,11 +19,7 @@ month = eval(input('請輸入月份'))
 
 
 def function_january_first_day (year):
-    global initial_year
-    global january_first_day 
-    global month_first_day
-    global month_day
-    global distinguish 
+    global initial_year , january_first_day , month_first_day , month_day , distinguish 
     initial_year=1582
     january_first_day = 5
     month_first_day = 0

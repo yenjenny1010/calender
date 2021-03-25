@@ -6,9 +6,7 @@ allmonth = [0,"JAN", 'FEB', 'MAR', 'APR', 'MAY','JUN', 'JUL', 'AUG', 'SEP', 'OCT
 allday=['一','二','三','四','五','六','日']
 def function_january_first_day (year):
     global initial_year , january_first_day , month_first_day , month_day , distinguish 
-    
     while 1:
-        
         if initial_year % 4 == 0 and initial_year % 100 == 0 and initial_year % 400 == 0:#leapyear
             distinguish = 1  
         elif initial_year % 4 == 0 and initial_year % 100 == 0:#leapyear
@@ -36,7 +34,6 @@ def function_january_first_day (year):
     return january_first_day
 def function_month_first_day (year,month):
     global month_first_day
-    
     while 1:
         initialmonth = 1
         while 1 :
@@ -48,7 +45,7 @@ def function_month_first_day (year,month):
                 month_first_day = (month_first_day+28) % 7
             elif initialmonth == 5 or initialmonth == 7 or initialmonth ==10 or initialmonth ==12:
                 month_first_day = (month_first_day+30) % 7
-            elif initialmonth == 2 or initialmonth == 4 or initialmonth == 6 or initialmonth == 8 or initialmonth ==9 or initialmonth ==11:
+            else:
                 month_first_day = (month_first_day+31) % 7
             if initialmonth == month:
                 break
@@ -75,12 +72,12 @@ elif mode == 3:
     print('進入日曆模式')
 
 january_first_day=function_january_first_day(year)
-month_first_day =function_month_first_day (year,month)
+month_first_day=function_month_first_day (year,month)
 if mode == 1:
-    print("日\t一\t二\t三\t四\t五\t六")
     enter = january_first_day
     for j in range(1, 13):
-        print("\n", allmonth[j], end='\n', sep="")
+        print("\n",'------------------------',allmonth[j],'------------------------', end='\n', sep="")
+        print("SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT")
         print('\t'*(function_month_first_day(year,j)), end="")
         enter = function_month_first_day(year,j)
         for i in range(1, month_day+1):
@@ -88,9 +85,9 @@ if mode == 1:
             enter = enter+1
             if enter % 7 == 0:
                 print('')
-
 if mode == 2:
-    print("日\t一\t二\t三\t四\t五\t六")
+    print("\n",'------------------------',allmonth[month],'------------------------', end='\n', sep="")
+    print("SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT")
     enter = month_first_day
     print('\t'*(month_first_day), end="")
     for i in range(1, month_day+1):

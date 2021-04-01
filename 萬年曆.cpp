@@ -11,6 +11,7 @@ int year;
 int initialmonth = 1;
 int mode;
 int date;
+
 string allmonth[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 string allday[7] = {"一", "二", "三", "四", "五", "六", "日"};
 int function_january_first_day(int year)
@@ -118,35 +119,52 @@ int main()
         cout << "進入月曆模式";
     }
 
-cout<<function_month_first_day()<<endl;
+    january_first_day = function_january_first_day(year);
+    month_first_day = function_month_first_day();
+    if (mode == 1)
+    {
+        int enter = january_first_day;
+        cout << "\t" * 5 << "======" << year << "======" << endl;
+        for (int j = 1; j < 13; j++)
+        {
+            cout << "\n"
+                 << "------------------------" << allmonth[j] << "------------------------" << endl;
+            cout << "SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT" << endl;
+            cout << "\t" * (function_month_first_day()) << endl;
+            enter = function_month_first_day();
+            for (int i = 1; i < month_day + 1; i++)
+            {
+                cout << i << "\t";
+                enter = enter + 1;
+                if (enter % 7 == 0)
+                    cout << "" << endl;
+            }
+        }
+    }
+    if (mode == 2)
+    {
+        cout << "\n"
+             << "------------------------" << allmonth[month] << "------------------------"
+             << "\n"
+             << endl;
+        cout << "SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT" << endl;
+        int enter = month_first_day;
+        cout << "\t" * (month_first_day) << "" << endl;
+        for (int i = 1; i < month_day + 1; i++)
+        {
+            cout << i << "\t" << endl;
+            enter = enter + 1;
+            if (enter % 7 == 0)
+            {
+                cout <<"\n" << endl;
+            }
+        }
+    }
+    if (mode == 3)
+    {
+        cout << year << "年" << month << "月" << date << "日"
+             << "星期" << endl;
+        int day = (month_first_day + date - 1) % 7;
+        cout << allday[day - 1];
+    }
 }
-    /*january_first_day=function_january_first_day(year)
-month_first_day=function_month_first_day (year,month)
-if mode == 1:
-    enter = january_first_day
-    print("\t"*5,"======",year,"======")
-    for j in range(1, 13):
-        print("\n","------------------------",allmonth[j],"------------------------", end="\n", sep="")
-        print("SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT")
-        print("\t"*(function_month_first_day(year,j)), end="")
-        enter = function_month_first_day(year,j)
-        for i in range(1, month_day+1):
-            print(i, end="\t")
-            enter = enter+1
-            if enter % 7 == 0:
-                print("")
-if mode == 2:
-    print("\n","------------------------",allmonth[month],"------------------------", end="\n", sep="")
-    print("SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT")
-    enter = month_first_day
-    print("\t"*(month_first_day), end="")
-    for i in range(1, month_day+1):
-        print(i, end="\t")
-        enter = enter+1
-        if enter % 7 == 0:
-            print("")
-if mode == 3:
-    print(year, "年", month, "月", date, "日", "星期", end="")
-    day = (month_first_day+date-1) % 7
-    print(allday[day-1])
-    */

@@ -74,7 +74,7 @@ int function_january_first_day()
                 else
                     month_first_day = (month_first_day + 31) % 7;
                 if initialmonth== month 
-                break;
+                    break;
                 else
                     initialmonth = initialmonth + 1;
             }

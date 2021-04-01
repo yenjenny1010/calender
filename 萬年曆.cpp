@@ -3,14 +3,17 @@
 using namespace std;
 int initial_year = 1582;
 int january_first_day = 5;
-double month_first_day = 0;
-double month_day = 0;
-double distinguish;
-int month = 5;
-int year = 2021;
+int month_first_day = 0;
+int month_day = 0;
+int distinguish;
+int month;
+int year;
+int initialmonth = 1;
+int mode;
+int date;
 string allmonth[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 string allday[7] = {"一", "二", "三", "四", "五", "六", "日"};
-int function_january_first_day()
+int function_january_first_day(int year)
 {
     while (1)
     {
@@ -52,56 +55,72 @@ int function_january_first_day()
         return january_first_day;
     }
 }
-    int function_month_first_day(month) 
+int function_month_first_day()
+{
+    while (1)
     {
+        initialmonth = 1;
         while (1)
         {
-            initialmonth = 1;
-            while (1)
+            if (initialmonth == 1)
             {
-                if (initialmonth == 1)
-                {
-                    month_first_day = january_first_day
-                }
-                else if (initialmonth == 3 and distinguish == 1)
-                    month_first_day = (month_first_day + 29) % 7;
-                else if (initialmonth == 3)
-                {
-                    month_first_day = (month_first_day + 28) % 7;
-                }
-                else if (initialmonth == 5 || initialmonth == 7 || initialmonth == 10 || initialmonth == 12)
-                    month_first_day = (month_first_day + 30) % 7;
-                else
-                    month_first_day = (month_first_day + 31) % 7;
-                if initialmonth== month 
-                    break;
-                else
-                    initialmonth = initialmonth + 1;
+                month_first_day = january_first_day;
             }
-            break;
+            else if (initialmonth == 3 and distinguish == 1)
+                month_first_day = (month_first_day + 29) % 7;
+            else if (initialmonth == 3)
+            {
+                month_first_day = (month_first_day + 28) % 7;
+            }
+            else if (initialmonth == 5 || initialmonth == 7 || initialmonth == 10 || initialmonth == 12)
+                month_first_day = (month_first_day + 30) % 7;
+            else
+                month_first_day = (month_first_day + 31) % 7;
+            if (initialmonth == month)
+                break;
+            else
+                initialmonth = initialmonth + 1;
         }
-        return month_first_day  ;
-        }
-/*
-print("輸入1進入年曆模式\n輸入2進入月曆模式\n輸入3進入日曆模式")
-mode = eval(input("請輸入查詢模式"))
-if mode == 1:
-    year = eval(input("請輸入年份"))
-    month = 1
-    date = 1
-    print("進入年曆模式")
-elif mode == 2:
-    year = eval(input("請輸入年份"))
-    month = eval(input("請輸入月份"))
-    date = 1
-    print("進入月曆模式")
-elif mode == 3:
-    year = eval(input("請輸入年份"))
-    month = eval(input("請輸入月份"))
-    date = eval(input("請輸入日期"))
-    print("進入日曆模式")
+        break;
+    }
+    return month_first_day;
+}
+int main()
+{
+    cout << "輸入1進入年曆模式\n輸入2進入月曆模式\n輸入3進入日曆模式" << endl;
+    cout << "請輸入查詢模式" << endl;
+    cin >> mode;
+    if (mode == 1)
+    {
+        cout << "請輸入年份" << endl;
+        cin >> year;
+        month = 1;
+        date = 1;
+        cout << "進入年曆模式";
+    }
+    else if (mode == 2)
+    {
+        cout << "請輸入年份" << endl;
+        cin >> year;
+        cout << "請輸入月份" << endl;
+        cin >> month;
+        date = 1;
+        cout << "進入月曆模式";
+    }
+    else if (mode == 3)
+    {
+        cout << "請輸入年份" << endl;
+        cin >> year;
+        cout << "請輸入月份" << endl;
+        cin >> month;
+        cout << "請輸入年份" << endl;
+        cin >> date;
+        cout << "進入月曆模式";
+    }
 
-january_first_day=function_january_first_day(year)
+cout<<function_month_first_day()<<endl;
+}
+    /*january_first_day=function_january_first_day(year)
 month_first_day=function_month_first_day (year,month)
 if mode == 1:
     enter = january_first_day

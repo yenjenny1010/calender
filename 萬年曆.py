@@ -75,6 +75,7 @@ january_first_day=function_january_first_day(year)
 month_first_day=function_month_first_day (year,month)
 if mode == 1:
     enter = january_first_day
+    print("\t"*5,"======",year,"======")
     for j in range(1, 13):
         print("\n",'------------------------',allmonth[j],'------------------------', end='\n', sep="")
         print("SUN\tMON\tTUS\tWED\tTHU\tFRI\tSAT")

@@ -11,7 +11,7 @@ month_first_day=1
 enter = month_first_day
 
 while 1:
-    for l in range(1,3):#一到二月
+    for l in range(1,2):#一到二月
         monthtotalday=monthday[l]
         for i in range(0,month_first_day):
             k=0
@@ -19,14 +19,21 @@ while 1:
         for i in range(1,monthtotalday+1):
             calender[k,enter % 7]=i
             enter=enter+1
-            print("k",k,"enter",enter%7,i)
             if (enter) % 7 == 0:
                 k+=1
-        print (calender)
+        print(calender)
     break
-
-for i in range(1, month_day+1):
-        print(i, end='\t')
-        enter = enter+1
-        if enter % 7 == 0:
-            print('')
+enter=1
+print('\t'*(month_first_day),end="")
+for i in range(5):
+    print("")
+    print(enter,".")
+    for j in range(7):#j是行列所以7
+        if enter%7==0:
+            print("",sep="")
+        if calender[i,j]==0:
+            print(" ",end="")
+        else:
+            print("%5s" % int(calender[i,j]),end="")
+        enter+=1
+print(enter)
